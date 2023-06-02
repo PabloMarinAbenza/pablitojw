@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Examen1</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/basic.css">
+        <style type="text/css">
+
+        </style>
+    </head>
+    <body> <!-- This is a comment in HTML -->
+
+
+        <ul id ="myID">
+            <li><a href='https://en.wikipedia.org/wiki/Spring_(season)' >Spring</a></li>
+            <li>Summer</li>
+            <li>Autumn</li>
+            <li>Winter</li>
+        </ul>
+        
+        <label>Opacity: </label>
+        <input type="range" id="myRange" onchange=setOpacity() min="30" max="100" value="50" step="5" ></input> 
+
+        <output id="out" for="myRange">50%</output>  <!--ESTO ESCRIBE EN LA PANTALLA LA VARIABLE QUE QUIERAS-->
+
+        <script>
+
+
+            let slider;
+            let a;
+            let c= document.getElementById("myID");
+     
+
+            setOpacity();
+
+            function setOpacity()
+            {   
+                
+                slider = document.getElementById("myRange");
+                c.style.opacity=slider.value*0.01; 
+                
+                a=document.getElementById("out")            //Estas dos lineas sirven para que aparezca el valor de la barra en el lado derecho
+                a.value=slider.value + "%"
+                
+            }
+
+    </script>
+
+  
+
+    </body>
+</html>
