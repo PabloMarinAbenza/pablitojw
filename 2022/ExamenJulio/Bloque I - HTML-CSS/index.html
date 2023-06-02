@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen</title>
+    <style>
+        canvas{
+            background-color: lightgray;
+            border: 2px dashed black;
+        }
+        input{
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="400" height="400"></canvas>
+    <input onclick="drawLine()" type="button" value="blue"></body>
+    <script>
+        const ANCHURA_CANVAS = 400;
+        const ALTURA_CANVAS = 400;
+
+        const COLORS = ["blue", "red", "green", "yellow"];
+
+        function draw(color){
+            let cv = document.getElementsByTagName('canvas')[0];
+            let ctx = cv.getContext('2d');
+            ctx.strokeStyle = color;
+            ctx.beginPath();
+
+            switch(color){
+                case 'blue':
+                    ctx.moveTo(0,0);
+                    break;
+                case 'red':
+                    ctx.moveTo(ANCHURA_CANVAS,0);
+                    break;
+                case 'green':
+                    ctx.moveTo(ANCHURA_CANVAS,ALTURA_CANVAS);
+                    break;
+                case 'yellow':
+                    ctx.moveTo(0,ALTURA_CANVAS);
+                    break;
+            }
+
+            ctx.lineTo(ANCHURA_CANVAS/2, ALTURA_CANVAS/2);
+            ctx.stroke();
+        }
+
+        let pos = 0;
+        function drawLine(){
+            let cv = document.getElementsByTagName('canvas')[0];
+            let ctx = cv.getContext('2d');
+            ctx.lineWidth = 3 + Math.floor(pos/COLORS.length) * 2;
+
+            draw(COLORS[pos%COLORS.length]);
+            pos ++;
+            let button = document.getElementsByTagName('input')[0];
+            button.value = COLORS[pos%COLORS.length];
+        }
+        
+    </script>
+</body>
+
+</html>

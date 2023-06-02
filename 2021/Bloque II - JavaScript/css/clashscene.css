@@ -1,0 +1,12 @@
+#battlefield {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    border: 1px solid black;
+}
+
+.superheroweapon {
+    position: absolute;
+    font-family: times;
+    text-align: center;
+}
